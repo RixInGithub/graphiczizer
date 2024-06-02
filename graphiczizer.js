@@ -63,6 +63,9 @@ icc = atob("AAAjeGxjbXMCEAAAbW50clJHQiBYWVogB98ACwAKAAwAEgA4YWNzcCpuaXgAAAAAAAAA
 		frmInd = kraFrms.length
 		kraFrms.push([])
 		mem = {...initMem, me: chFunc}
+		if (chFunc.three) {
+			throw RuntimeError("If 2D ain't working, don't bother for Three.js for now.")
+		}
 		while (chFunc(ctx2d, mem)) {
 			kraFrms[frmInd].push(pxDatToKraLayer(ctx2d.getImageData(0, 0, w, h).data))
 			mem.frms += 1
