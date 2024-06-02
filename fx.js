@@ -11,7 +11,7 @@ module.exports = (
 		}
 	].map(function(f) {f.three = false;return f}).concat(
 		[
-			
+			// If 2D ain't working, don't bother for Three.js for now.
 		].map(function(f) {f.three = true;return f})
 	)
 )

@@ -79,7 +79,7 @@ icc = atob("AAAjeGxjbXMCEAAAbW50clJHQiBYWVogB98ACwAKAAwAEgA4YWNzcCpuaXgAAAAAAAAA
 	console.log("Adding Krita frames...")
 	kra.file(`${outName}/layers/.defaultpixel`, Buffer.alloc(4), {binary: true})
 	for (var l in kraFrms) {
-		l = Number(l) // See line 91
+		l = Number(l) // See line 90
 		lFile = `${outName}/layers/layer${l + 1}`
 		kra.file(`${lFile}.icc`, icc) // Data Analyst confirmed ICC files from two layers are exactly the same.
 		var keyframesJSDOM = new JSDOM(`<keyframes xmlns="http://www.calligra.org/DTD/krita-keyframes"><channel name="content"></channel></keyframes>`, {contentType: "text/xml"})
@@ -87,7 +87,7 @@ icc = atob("AAAjeGxjbXMCEAAAbW50clJHQiBYWVogB98ACwAKAAwAEgA4YWNzcCpuaXgAAAAAAAAA
 		var kfPar = keyframes.querySelector("keyframes")
 		var kf
 		for (var f in kraFrms[l]) { // A buffer? More like a bummer...
-			f = Number(f) // See line 132
+			f = Number(f) // See line 145
 			var fFile = `${lFile}${!!f ? `.f${f + 1}` : ""}` // layerN, then layerN.f2, so on...
 			kra.file(`${fFile}.defaultpixel`, Buffer.alloc(4), {binary: true}) // transparency support? more like transGENDER support!!1 hehe... hehehehaha... hahaha....
 			console.log(kraFrms[l][f])
